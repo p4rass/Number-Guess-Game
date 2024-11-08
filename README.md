@@ -1,34 +1,38 @@
-//GUESS THE NUMBER
+#GUESS THE NUMBER GAME
 
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
+using namespace std;
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+int main() {
 
-int main(){
     srand(time(0));
-    int r = (rand()%10) + 1;
-    printf("guess a number between 1 to 10\n");
-    int b = 1;   
-    while (1 < 2){
-        int a;
-        scanf("%d", &a);
-        if (a == r){
-            printf("hurray, you got it right\n");
-            break;
-            b++;
+    int r = (rand() % 10) + 1;
+
+    cout << "Guess a number between 1 and 10\n";
+
+    int b = 1;  
+    while (true) {
+        int a= 0;
+        cin >> a;  
+
+        if (a == r) {
+            cout << "Hurray, you got it right!\n";
+            break;  
         }
-        else if (a < r){
-            printf("chose a number greater then %d\n", a);
-            b++;
-        }    
-         else if (a > r){
-            printf("chose a number lower then %d\n", a);
-            b++;
-        }    
+        else if (a < r) {
+            cout << "Choose a number greater than " << a << "\n";
         }
-    printf("you gussed the number in %d attempts", b);    
-    return 0;
+        else if (a > r) {
+            cout << "Choose a number lower than " << a << "\n";
+        }
+
+        b++;
     }
+
+    cout << "You guessed the number in " << b << " attempts\n";
     
+    return 0;
+}
